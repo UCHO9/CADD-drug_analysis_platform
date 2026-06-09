@@ -1,0 +1,11 @@
+streamlit
+streamlit-ketcher
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+joblib
+shap
+biopython
+rdkit
