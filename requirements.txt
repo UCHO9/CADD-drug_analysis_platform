@@ -9,3 +9,4 @@ joblib
 shap
 biopython
 rdkit
+Pillow
