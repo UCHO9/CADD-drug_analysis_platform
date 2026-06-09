@@ -227,7 +227,7 @@ def build_qsar_model(model_type, model_params):
             max_depth=model_params["max_depth"],
             max_features=model_params["max_features"],
             random_state=42,
-            n_jobs=-1,
+            n_jobs=1,
             class_weight="balanced"
         )
 
@@ -290,7 +290,7 @@ def build_qsar_model(model_type, model_params):
                 max_depth=model_params["max_depth"],
                 max_features=model_params["max_features"],
                 random_state=42,
-                n_jobs=-1,
+                n_jobs=1,
                 class_weight="balanced"
             )),
             ("gb", GradientBoostingClassifier(
@@ -303,7 +303,7 @@ def build_qsar_model(model_type, model_params):
         return VotingClassifier(
             estimators=estimators,
             voting="soft",
-            n_jobs=-1
+            n_jobs=1
         )
 
     if model_type == "Stacking 融合模型":
@@ -321,7 +321,7 @@ def build_qsar_model(model_type, model_params):
                 max_depth=model_params["max_depth"],
                 max_features=model_params["max_features"],
                 random_state=42,
-                n_jobs=-1,
+                n_jobs=1,
                 class_weight="balanced"
             )),
             ("gb", GradientBoostingClassifier(
@@ -336,7 +336,7 @@ def build_qsar_model(model_type, model_params):
             final_estimator=LogisticRegression(max_iter=2000, class_weight="balanced", random_state=42),
             stack_method="predict_proba",
             cv=5,
-            n_jobs=-1,
+            n_jobs=1,
             passthrough=False
         )
 
